@@ -3,4 +3,9 @@
     height: 180px;
     vertical-align: middle;
     border-radius: 50%;
+    transition: transform .2s;
+}
+
+.photo:hover {
+    transform: scale(1.5);
 }

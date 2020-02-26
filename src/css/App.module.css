@@ -1,23 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
 body {
     background-color: #355C7D;
     background-image: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
     background-image: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+    font-family: 'Caveat';
+    font-size: 25px;
 }
-
-
 
 .container {
     width: 500px;
     margin: 100px auto;
     min-height: 500px;
-    background-color: white;
+    background: #FFEFBA;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA);
     padding: 50px;
     border-radius: 7%;
 }
 
 .header {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.form {
 
 }
+

@@ -1,0 +1,19 @@
+.skills {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text {
+    font-size: 28px;
+}
+
+.skill {
+    color: red;
+    font-weight: bold;
+}
+
+.list {
+    margin: 0;
+}
