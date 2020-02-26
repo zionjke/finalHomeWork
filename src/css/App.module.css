@@ -2,14 +2,22 @@ body {
     background-color: #355C7D;
     background-image: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
     background-image: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
-
 }
+
+
 
 .container {
     width: 500px;
-    min-height: 400px;
-    background-color: white;
     margin: 100px auto;
-    padding: 10px;
+    min-height: 500px;
+    background-color: white;
+    padding: 50px;
     border-radius: 7%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
 }

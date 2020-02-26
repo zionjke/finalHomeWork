@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
+
+.greeting {
+    font-family: 'Caveat';
+    width: 45%;
+    font-size: 25px;
+}
+
+.name,
+.age,
+.city {
+    font-weight: bold;
+    color: red;
+}
