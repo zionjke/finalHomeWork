@@ -16,8 +16,23 @@ class App extends React.Component {
             {skill: "Непреклонный"},
             {skill: "Трудолюбивый"},
             {skill: "Порядочный"}
+        ],
+
+        friends: [
+            {name:""}
         ]
     };
+
+    addFriend = (newName) => {
+        let newFriend = {
+            name: newName
+        };
+        let newFriends = [...this.state.friends, newFriend];
+        this.setState({
+            friends: newFriends
+        })
+    };
+
 
 
     render = () => {
