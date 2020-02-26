@@ -10,7 +10,6 @@ body {
 .container {
     width: 500px;
     margin: 100px auto;
-    min-height: 500px;
     background: #FFEFBA;
     background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
     background: linear-gradient(to right, #FFFFFF, #FFEFBA);
@@ -26,6 +25,8 @@ body {
 }
 
 .form {
+    display: flex;
+    justify-content: center;
     margin-top: 40px;
 }
 

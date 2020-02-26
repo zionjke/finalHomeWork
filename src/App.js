@@ -3,6 +3,8 @@ import styles from './css/App.module.css'
 import Greeting from "./components/Greeting";
 import Photo from "./components/Photo";
 import Skills from "./components/Skills";
+import Input from "./components/Input";
+import Button from "./components/Button";
 
 class App extends React.Component {
     state = {
@@ -45,8 +47,9 @@ class App extends React.Component {
                         <Photo photo={this.state.person.photo}/>
                     </div>
                     <Skills skills={this.state.skills}/>
-                    <div className="form">
-
+                    <div className={styles.form}>
+                        <Input/>
+                        <Button/>
                     </div>
                 </div>
             </div>
