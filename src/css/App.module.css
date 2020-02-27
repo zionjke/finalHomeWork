@@ -4,7 +4,7 @@ body {
     background-image: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
     background-image: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
     font-family: 'Caveat';
-    font-size: 25px;
+    font-size: 28px;
 }
 
 .container {
@@ -24,8 +24,4 @@ body {
     flex-wrap: wrap;
 }
 
-.form {
-    display: flex;
-    margin-top: 40px;
-}
 

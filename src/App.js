@@ -3,8 +3,7 @@ import styles from './css/App.module.css'
 import Greeting from "./components/Greeting";
 import Photo from "./components/Photo";
 import Skills from "./components/Skills";
-import Input from "./components/Input";
-import Button from "./components/Button";
+import Form from "./components/Form";
 
 class App extends React.Component {
     state = {
@@ -32,7 +31,7 @@ class App extends React.Component {
         let newFriends = [...this.state.friends, newFriend];
         this.setState({
             friends: newFriends
-        })
+        });
     };
 
 
@@ -47,10 +46,7 @@ class App extends React.Component {
                         <Photo photo={this.state.person.photo}/>
                     </div>
                     <Skills skills={this.state.skills}/>
-                    <div className={styles.form}>
-                        <Input/>
-                        <Button/>
-                    </div>
+                    <Form friends={this.state.friends} addFriend={this.addFriend}/>
                 </div>
             </div>
         );
