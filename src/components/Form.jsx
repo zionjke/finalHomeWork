@@ -19,8 +19,11 @@ class Form extends React.Component {
         return (
             <div className={styles.form}>
                 <p className={styles.form_text}>Ну что, пришло время познакомится? :)</p>
-                <Input newFriendNameRef={this.props.newFriendNameRef} buttonChange={this.props.buttonChange} placeholder={"Имя:"}/>
-                <Button onAddFriendButtonClick={this.onAddFriendButtonClick} disabled={this.props.disabled}/>
+                <Input newFriendNameRef={this.props.newFriendNameRef}
+                       buttonChange={this.props.buttonChange}
+                       placeholder={"Имя:"}/>
+                <Button onAddFriendButtonClick={this.onAddFriendButtonClick}
+                        disabled={this.props.disabled}/>
                 <p className={styles.form_text}>Список друзей самураев:</p>
                 <ul className={styles.friendsList}>
                     {friendsElement}
