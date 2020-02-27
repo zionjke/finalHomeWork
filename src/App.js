@@ -21,7 +21,9 @@ class App extends React.Component {
 
         friends: [
             {name:""}
-        ]
+        ],
+
+        disabled: true
     };
 
     addFriend = (newName) => {
@@ -32,6 +34,18 @@ class App extends React.Component {
         this.setState({
             friends: newFriends
         });
+    };
+
+    buttonChange = (e) => {
+        if(e.target.value.length >=1) {
+            this.setState({
+                disabled: false
+            });
+        } else {
+            this.setState({
+                disabled: true
+            });
+        }
     };
 
 
@@ -46,7 +60,10 @@ class App extends React.Component {
                         <Photo photo={this.state.person.photo}/>
                     </div>
                     <Skills skills={this.state.skills}/>
-                    <Form friends={this.state.friends} addFriend={this.addFriend}/>
+                    <Form friends={this.state.friends}
+                          addFriend={this.addFriend}
+                          buttonChange={this.buttonChange}
+                          disabled={this.state.disabled}/>
                 </div>
             </div>
         );

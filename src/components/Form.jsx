@@ -19,10 +19,10 @@ class Form extends React.Component {
         });
         return (
             <div className={styles.form}>
-                <p className={styles.form_text}>Ну что пришло время познакомится? :)</p>
-                <input className={styles.input} ref={this.newFriendNameRef}  placeholder={"Имя:"} type="text"/>
-                <button className={styles.button} onClick={this.onAddFriendButtonClick} disabled={!this.newFriendNameRef}>Отправить</button>
-                <p className={styles.form_text}>Список друзей:</p>
+                <p className={styles.form_text}>Ну что, пришло время познакомится? :)</p>
+                <input className={styles.input} ref={this.newFriendNameRef} onChange={this.props.buttonChange}  placeholder={"Имя:"}/>
+                <button className={styles.button} onClick={this.onAddFriendButtonClick} disabled={this.props.disabled}  >Отправить</button>
+                <p className={styles.form_text}>Список друзей самураев:</p>
                 <ul className={styles.friendsList}>
                     {friendsElement}
                 </ul>
