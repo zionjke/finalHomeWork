@@ -3,7 +3,7 @@ import styles from '../css/Skills.module.css'
 
 class Skills extends React.Component {
   render = () => {
-      let skillsElement = this.props.skills.map(s => {return ( <li className={styles.skill}>{s.skill}</li>)});
+      let skillsElement = this.props.skills.map((s,skill) => {return ( <li key={skill}  className={styles.skill}>{s.skill}</li>)});
     return (
        <div className={styles.skills}>
             <p className={styles.text}>

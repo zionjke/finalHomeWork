@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Form from "./components/Form";
 
 class App extends React.Component {
+    newFriendNameRef = React.createRef();
     state = {
         person: {
             name: "Васильев Артем",
@@ -36,14 +37,14 @@ class App extends React.Component {
         });
     };
 
-    buttonChange = (e) => {
-        if(e.target.value.length >=1) {
+    buttonChange = () => {
+        if(this.newFriendNameRef.current.value==="") {
             this.setState({
-                disabled: false
+                disabled: true
             });
         } else {
             this.setState({
-                disabled: true
+                disabled: false
             });
         }
     };
@@ -62,8 +63,9 @@ class App extends React.Component {
                     <Skills skills={this.state.skills}/>
                     <Form friends={this.state.friends}
                           addFriend={this.addFriend}
-                          buttonChange={this.buttonChange}
-                          disabled={this.state.disabled}/>
+                          buttonChange={ this.buttonChange}
+                          disabled={this.state.disabled}
+                          newFriendNameRef={this.newFriendNameRef}/>
                 </div>
             </div>
         );

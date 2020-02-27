@@ -1,27 +1,26 @@
 import React from 'react';
 import styles from '../css/Form.module.css'
+import Button from "./Button";
+import Input from "./Input";
 
 class Form extends React.Component {
-    newFriendNameRef = React.createRef();
+
     onAddFriendButtonClick = () => {
-        let newName = this.newFriendNameRef.current.value;
-        if (this.newFriendNameRef.current.value===""){
-            alert("Введи свое имя бро ;)")
-        } else {
+        let newName = this.props.newFriendNameRef.current.value;
             alert("Будем знакомы " + newName + " " + "," +"я добавлю тебя в список друзей");
-            this.newFriendNameRef.current.value = "";
+            this.props.newFriendNameRef.current.value = "";
             this.props.addFriend(newName)
-        }
     };
+
     render = () => {
-        let friendsElement = this.props.friends.map(f => {
-            return (<li>{f.name}</li>)
+        let friendsElement = this.props.friends.map((f,name) => {
+            return (<li key={name}>{f.name}</li>)
         });
         return (
             <div className={styles.form}>
                 <p className={styles.form_text}>Ну что, пришло время познакомится? :)</p>
-                <input className={styles.input} ref={this.newFriendNameRef} onChange={this.props.buttonChange}  placeholder={"Имя:"}/>
-                <button className={styles.button} onClick={this.onAddFriendButtonClick} disabled={this.props.disabled}  >Отправить</button>
+                <Input newFriendNameRef={this.props.newFriendNameRef} buttonChange={this.props.buttonChange} placeholder={"Имя:"}/>
+                <Button onAddFriendButtonClick={this.onAddFriendButtonClick} disabled={this.props.disabled}/>
                 <p className={styles.form_text}>Список друзей самураев:</p>
                 <ul className={styles.friendsList}>
                     {friendsElement}

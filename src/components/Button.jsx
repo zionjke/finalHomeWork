@@ -5,8 +5,8 @@ class Button extends React.Component {
 
   render = () => {
     return (
-        <button>
-
+        <button className={styles.button} onClick={this.props.onAddFriendButtonClick} disabled={this.props.disabled}  >
+            Отправить
         </button>
     );
   }
