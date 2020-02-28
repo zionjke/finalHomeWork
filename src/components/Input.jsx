@@ -8,7 +8,8 @@ class Input extends React.Component {
         <input className={styles.input}
                ref={this.props.newFriendNameRef}
                onChange={this.props.buttonChange}
-               placeholder={this.props.placeholder}/>
+               placeholder={this.props.placeholder}
+                />
     );
   }
 }

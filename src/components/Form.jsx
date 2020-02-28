@@ -21,7 +21,8 @@ class Form extends React.Component {
                 <p className={styles.form_text}>Ну что, пришло время познакомится? :)</p>
                 <Input newFriendNameRef={this.props.newFriendNameRef}
                        buttonChange={this.props.buttonChange}
-                       placeholder={"Имя:"}/>
+                       placeholder={"Имя:"}
+                       />
                 <Button onAddFriendButtonClick={this.onAddFriendButtonClick}
                         disabled={this.props.disabled}/>
                 <p className={styles.form_text}>Список друзей самураев:</p>
