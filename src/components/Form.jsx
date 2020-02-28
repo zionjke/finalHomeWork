@@ -9,7 +9,8 @@ class Form extends React.Component {
         let newName = this.props.newFriendNameRef.current.value;
             alert("Будем знакомы " + newName + " " + "," +"я добавлю тебя в список друзей");
             this.props.newFriendNameRef.current.value = "";
-            this.props.addFriend(newName)
+            this.props.addFriend(newName);
+            this.setState({disabled: true})
     };
 
     render = () => {

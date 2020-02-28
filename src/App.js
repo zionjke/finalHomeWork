@@ -35,10 +35,13 @@ class App extends React.Component {
         this.setState({
             friends: newFriends
         });
+        this.setState({
+            disabled: true
+        });
     };
 
     buttonChange = () => {
-        if(this.newFriendNameRef.current.value==="") {
+        if(this.newFriendNameRef.current.value === "") {
             this.setState({
                 disabled: true
             });
