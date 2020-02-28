@@ -7,8 +7,15 @@ body {
     font-size: 28px;
 }
 
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .container {
-    width: 500px;
     margin: 100px auto;
     background: #FFEFBA;
     background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);

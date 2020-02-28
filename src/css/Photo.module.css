@@ -4,6 +4,7 @@
     vertical-align: middle;
     border-radius: 50%;
     transition: transform .2s;
+    margin-top: 20px;
 }
 
 .photo:hover {
