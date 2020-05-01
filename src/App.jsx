@@ -6,13 +6,13 @@ import Skills from "./components/Skills";
 import Form from "./components/Form";
 
 class App extends React.Component {
-    newFriendNameRef = React.createRef();
+
     state = {
         person: {
             name: "Васильев Артем",
             age: 31,
             city: "Киев",
-            photo: "https://cdn1.savepice.ru/uploads/2020/2/26/59dde4d8c95c90836dc97fdedc378fba-full.jpg"
+            photo: "https://scontent.fiev6-1.fna.fbcdn.net/v/t1.0-9/13537684_1115620958507918_4630165900902713817_n.jpg?_nc_cat=105&_nc_sid=a4a2d7&_nc_ohc=_aka8YDC4XMAX9bPC8w&_nc_ht=scontent.fiev6-1.fna&oh=fbff9bf570b7c0fcbcdd9bc86a1a8d33&oe=5ED1F4D5"
         },
         skills: [
             {skill: "Непреклонный"},
@@ -20,40 +20,17 @@ class App extends React.Component {
             {skill: "Порядочный"}
         ],
 
-        friends: [
-            {name:""}
-        ],
-
-        disabled: true
+        friends: [],
     };
 
-    addFriend = (newName) => {
-        let newFriend = {
-            name: newName
-        };
-        let newFriends = [...this.state.friends, newFriend];
+    addFriend = (newFriend) => {
         this.setState({
-            friends: newFriends
-        });
-        this.setState({
-            disabled: true
+            friends:[...this.state.friends, {friend: newFriend}]
         });
     };
 
-    buttonChange = () => {
-        if(this.newFriendNameRef.current.value === "") {
-            this.setState({
-                disabled: true
-            });
-        } else {
-            this.setState({
-                disabled: false
-            });
-        }
-    };
 
     render = () => {
-
         return (
             <div className={styles.App}>
                 <div className={styles.container}>
@@ -63,10 +40,7 @@ class App extends React.Component {
                     </div>
                     <Skills skills={this.state.skills}/>
                     <Form friends={this.state.friends}
-                          addFriend={this.addFriend}
-                          buttonChange={ this.buttonChange}
-                          disabled={this.state.disabled}
-                          newFriendNameRef={this.newFriendNameRef}/>
+                          addFriend={this.addFriend}/>
                 </div>
             </div>
         );

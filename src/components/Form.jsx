@@ -5,29 +5,54 @@ import Input from "./Input";
 
 class Form extends React.Component {
 
+    state = {
+        value: ""
+    }
+
     onAddFriendButtonClick = () => {
-        let newName = this.props.newFriendNameRef.current.value;
-            alert("Будем знакомы " + newName + " " + "," +"я добавлю тебя в список друзей");
-            this.props.newFriendNameRef.current.value = "";
-            this.props.addFriend(newName);
+        alert("Привет" + " " + this.state.value)
+        this.props.addFriend(this.state.value);
+        this.setState({
+            value: ""
+        })
+    };
+
+    changeInputValue = (e) => {
+        this.setState({
+            value: e.currentTarget.value
+        })
+    }
+
+    onKeyPress = (e) => {
+        if (e.key === "Enter") {
+            this.onAddFriendButtonClick()
+        }
     };
 
     render = () => {
-        let friendsElement = this.props.friends.map((f,name) => {
-            return (<li key={name}>{f.name}</li>)
+
+        let friendsList = this.props.friends.map((f,index) => {
+            return (<li key={index}>{f.friend}</li>)
         });
+
+        let buttonDisabled = !this.state.value
+
         return (
             <div className={styles.form}>
-                <p className={styles.form_text}>Ну что, пришло время познакомится? :)</p>
-                <Input newFriendNameRef={this.props.newFriendNameRef}
-                       buttonChange={this.props.buttonChange}
-                       placeholder={"Имя:"}
-                       />
-                <Button onAddFriendButtonClick={this.onAddFriendButtonClick}
-                        disabled={this.props.disabled}/>
-                <p className={styles.form_text}>Список друзей самураев:</p>
+                <p>
+                    Ну что, пришло время познакомится? :)
+                </p>
+                <Input onChange={this.changeInputValue}
+                       value = {this.state.value}
+                       onKeyPress={this.onKeyPress}
+                       placeholder="Введи свое имя:"/>
+                <Button onClick={this.onAddFriendButtonClick}
+                        disabled={buttonDisabled}/>
+                <p>
+                    Список друзей самураев:
+                </p>
                 <ul className={styles.friendsList}>
-                    {friendsElement}
+                    {friendsList}
                 </ul>
             </div>
         );

@@ -3,7 +3,7 @@ import styles from '../css/Skills.module.css'
 
 class Skills extends React.Component {
   render = () => {
-      let skillsElement = this.props.skills.map((s,skill) => {return ( <li key={skill}  className={styles.skill}>{s.skill}</li>)});
+      let skillsList = this.props.skills.map((s,index) => {return ( <li key={index}  className={styles.skill}>{s.skill}</li>)});
     return (
        <div className={styles.skills}>
             <p className={styles.text}>
@@ -11,7 +11,7 @@ class Skills extends React.Component {
                 Тогда вот тебе три качевства которыми я обладаю:
             </p>
            <ul className={styles.list}>
-               {skillsElement}
+               {skillsList}
            </ul>
        </div>
     );

@@ -6,9 +6,10 @@ class Input extends React.Component {
   render = () => {
     return (
         <input className={styles.input}
-               ref={this.props.newFriendNameRef}
-               onChange={this.props.buttonChange}
                placeholder={this.props.placeholder}
+               value = {this.props.value}
+               onChange={this.props.onChange}
+               onKeyPress={this.props.onKeyPress}
                 />
     );
   }
