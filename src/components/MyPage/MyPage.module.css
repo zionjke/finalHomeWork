@@ -1,13 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
-body {
-    background-color: #355C7D;
-    background-image: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
-    background-image: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+
+.myPage {
     font-family: 'Caveat';
     font-size: 28px;
-}
-
-.App {
     display: flex;
     align-items: center;
     justify-content: center;

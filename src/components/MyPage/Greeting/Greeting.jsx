@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css/Greeting.module.css'
+import styles from './Greeting.module.css'
 
 class Greeting extends React.Component {
 

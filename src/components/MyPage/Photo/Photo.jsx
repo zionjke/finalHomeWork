@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css/Photo.module.css'
+import styles from './Photo.module.css'
 
 class Photo extends React.Component {
 

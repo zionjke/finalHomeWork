@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../css/Form.module.css'
-import Button from "./Button";
-import Input from "./Input";
+import styles from './Form.module.css'
+import Button from "../Button/Button";
+import Input from "../Input/Input";
 
 class Form extends React.Component {
 
