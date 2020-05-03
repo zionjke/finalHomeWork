@@ -10,11 +10,16 @@ class Form extends React.Component {
     }
 
     onAddFriendButtonClick = () => {
-        alert("Привет" + " " + this.state.value)
-        this.props.addFriend(this.state.value);
-        this.setState({
-            value: ""
-        })
+        if (this.state.value === "") {
+            alert("Введи свое имя")
+        } else {
+            alert("Привет" + " " + this.state.value)
+            this.props.addFriend(this.state.value);
+            this.setState({
+                value: ""
+            })
+        }
+
     };
 
     changeInputValue = (e) => {
