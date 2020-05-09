@@ -1,4 +1,4 @@
-.nav {
+nav {
   background:#FFFFFF;
     height: 80px;
     width: 100%;
@@ -29,3 +29,4 @@ a.active,a:hover {
     transition: .5s;
     font-weight: bold;
 }
+

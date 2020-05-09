@@ -24,6 +24,9 @@ class Navbar extends React.Component {
                     <li>
                         <NavLink to="/friday">Friday</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/counter">Counter</NavLink>
+                    </li>
                 </ul>
             </nav>
         );
