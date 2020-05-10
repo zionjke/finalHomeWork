@@ -8,21 +8,17 @@ class Settings extends React.Component {
 
 
     maxValue = (e) => {
-        this.props.changeMaxValue(e.currentTarget.valueAsNumber)
+        this.props.changeMaxValue(e.currentTarget.value)
     };
 
     minValue = (e) => {
-     this.props.changeStartValue(e.currentTarget.valueAsNumber)
+     this.props.changeStartValue(e.currentTarget.value)
     };
 
 
     render = () => {
 
-        let classForInput = this.props.state.maxValue === this.props.state.startValue ||
-                             this.props.state.maxValue < 0 ||
-                             this.props.state.startValue > this.props.state.maxValue ||
-                             this.props.state.startValue < 0 ? styles.errorInput : styles.input
-
+        let classForInput = this.props.state.counter === "error" ? styles.errorInput : styles.input
 
         return (
             <div className={styles.settings}>
@@ -53,6 +49,6 @@ class Settings extends React.Component {
 
         );
     }
-};
+}
 
 export default Settings;

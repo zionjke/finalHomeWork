@@ -39,13 +39,13 @@ class MyCounter extends React.Component {
         if( newMaxValue < 0 || newMaxValue <= this.state.startValue || this.state.startValue < 0 ) {
             this.setState({
                 counter: "error",
-                maxValue: newMaxValue,
+                maxValue: Number(newMaxValue),
                 setButtonDisabled: true,
             },() => { this.saveState()})
         } else {
             this.setState({
                 counter: "press set",
-                maxValue: newMaxValue,
+                maxValue: Number(newMaxValue),
                 setButtonDisabled: false,
             },() => { this.saveState()})
         }
@@ -55,13 +55,13 @@ class MyCounter extends React.Component {
         if(newStartValue < 0 || newStartValue >= this.state.maxValue ) {
             this.setState({
                 counter: "error",
-                startValue: newStartValue,
+                startValue: Number(newStartValue),
                 setButtonDisabled: true,
             },() => { this.saveState()})
         } else {
             this.setState({
                 counter: "press set",
-                startValue: newStartValue,
+                startValue: Number(newStartValue),
                 setButtonDisabled: false,
             },() => { this.saveState()})
         }
