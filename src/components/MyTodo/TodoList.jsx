@@ -70,6 +70,10 @@ class TodoList extends React.Component {
         this.changedTask(taskId, {title: newTitle});
     };
 
+    changePriority = (taskId, priority) => {
+        this.changedTask(taskId, {priority:priority})
+    }
+
     changedTask = (taskId, obj) => {
         let newTasks = this.state.tasks.map(t => {
             if (t.id !== taskId) {
@@ -118,6 +122,7 @@ class TodoList extends React.Component {
                     <AddNewItemForm addItem={this.addTask} />
                     <TodoListTasks changeStatus={this.changeStatus}
                                    changeTitle={this.changeTitle}
+                                   changePriority={this.changePriority}
                                    tasks={filteredTask}
                                    deleteTask={this.deleteTask}/>
                     <TodoListFooter changeFilter={this.changeFilter}

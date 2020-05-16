@@ -24,6 +24,10 @@ class TodoListTask extends React.Component {
     onIsTitleChanged = (e) => {
         this.props.changeTitle(this.props.task.id,e.currentTarget.value)
     };
+    
+    onIsPriorityChanged = (e) => {
+        this.props.changePriority(this.props.task.id,e.target.value)
+    }
 
     onIsDeleteTask = () => {
         this.props.deleteTask(this.props.task.id)
@@ -50,9 +54,15 @@ class TodoListTask extends React.Component {
                         : <span onClick={this.activatedEditMode}> {this.props.task.id}: {this.props.task.title} </span>
                     }
 
-                    <span>
-                         {this.props.task.priority}
-                    </span>
+                    {/*<span>*/}
+                    {/*     {this.props.task.priority}*/}
+                    {/*</span>*/}
+
+                    <select onChange={this.onIsPriorityChanged}>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
                     <button onClick={this.onIsDeleteTask}>delete</button>
                 </div>
         );
