@@ -3,3 +3,9 @@
     text-decoration: none;
     font-family: 'Caveat';
 }
+
+
+.loader {
+    width: 100px;
+    margin: 100px auto;
+}

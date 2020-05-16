@@ -14,18 +14,20 @@ class App extends React.Component {
         loading: true
     }
 
-    // componentDidMount() {
-    //     setTimeout(() => {
-    //         this.setState({
-    //             loading: false
-    //         })
-    //     }, 3000)
-    // }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                loading: false
+            })
+        }, 3000)
+    }
 
     render = () => {
         return (
             <HashRouter>
-                { !this.state.loading ? <Ripple color="red"/>
+                { this.state.loading ? <div className="loader">
+                    <Ripple color="red"/>
+                                        </div>
                     : <div className="App">
                         <Navbar/>
                         <Route exact path="/monday" render={() => <MyPage/>}/>
