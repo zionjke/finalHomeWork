@@ -2,6 +2,7 @@ import React from 'react';
 import './MyCounter.css';
 import Counter from "./Counter";
 import Settings from "./Settings";
+import {restoreState, saveState} from "../../localStorage";
 
 class MyCounter extends React.Component {
 
@@ -12,14 +13,12 @@ class MyCounter extends React.Component {
         setButtonDisabled: true,
     };
 
-    saveState = () => {
-        let  stateAString = JSON.stringify(this.state);
-        localStorage.setItem("state", stateAString);
+    saveCounter = () => {
+        saveState("counter-state",this.state)
     }
 
-    restoreState = () => {
-        let stateAString = localStorage.getItem('state');
-        let state = JSON.parse(stateAString)
+    restoreCounter = () => {
+        let state =  restoreState("counter-state",this.state)
         this.setState(state)
     }
 
@@ -41,13 +40,13 @@ class MyCounter extends React.Component {
                 counter: "error",
                 maxValue: Number(newMaxValue),
                 setButtonDisabled: true,
-            },() => { this.saveState()})
+            },() => { this.saveCounter()})
         } else {
             this.setState({
                 counter: "press set",
                 maxValue: Number(newMaxValue),
                 setButtonDisabled: false,
-            },() => { this.saveState()})
+            },() => { this.saveCounter()})
         }
     };
 
@@ -57,13 +56,13 @@ class MyCounter extends React.Component {
                 counter: "error",
                 startValue: Number(newStartValue),
                 setButtonDisabled: true,
-            },() => { this.saveState()})
+            },() => { this.saveCounter()})
         } else {
             this.setState({
                 counter: "press set",
                 startValue: Number(newStartValue),
                 setButtonDisabled: false,
-            },() => { this.saveState()})
+            },() => { this.saveCounter()})
         }
     };
 
@@ -71,11 +70,11 @@ class MyCounter extends React.Component {
         this.setState({
             counter: this.state.startValue,
             setButtonDisabled: true,
-        },() => { this.saveState()})
+        },() => { this.saveCounter()})
     };
 
     componentDidMount() {
-        this.restoreState()
+        this.restoreCounter()
     }
 
     render = () => {

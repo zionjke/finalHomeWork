@@ -2,30 +2,21 @@ import React from 'react';
 import './MyTodo.css';
 import TodoList from "./TodoList";
 import AddNewItemForm from "./AddNewItemForm";
+import {restoreState, saveState} from "../../localStorage";
 
 class MyTodo extends React.Component {
 
     state = {
-        todolists: []
+        todolists: [],
     }
+    newTodoId = 0
 
-    newTodoId = 0;
-
-
-    saveState = () => {
-        //переводим объект в строку
-        let  stateAString = JSON.stringify(this.state);
-        //сохраняем нашу строку в localStorage под ключом "state"
-        localStorage.setItem("todo-state", stateAString);
+    saveTodo = () => {
+        saveState("todo-state", this.state)
     };
 
-    restoreState = () => {
-        //объявляем наш стейт стартовый
-        let state = this.state
-        let stateAsString = localStorage.getItem("todo-state" );
-        if (stateAsString !== null) {
-            state = JSON.parse(stateAsString);
-        }
+    restoreTodo = () => {
+        let state =  restoreState("todo-state",this.state)
         this.setState(state, () => {
             this.state.todolists.forEach(tl => {
                 if (tl.id >= this.newTodoId) {
@@ -43,12 +34,12 @@ class MyTodo extends React.Component {
         this.newTodoId++;
         let newTodolists = [...this.state.todolists, newTodolist];
         this.setState({
-            todolists: newTodolists
-        },() => { this.saveState()})
+            todolists: newTodolists,
+        },() => { this.saveTodo()})
     };
 
     componentDidMount() {
-        this.restoreState()
+        this.restoreTodo()
     };
 
     render = () => {

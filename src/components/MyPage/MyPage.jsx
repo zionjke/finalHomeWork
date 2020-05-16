@@ -4,6 +4,7 @@ import Greeting from "./Greeting/Greeting";
 import Photo from "./Photo/Photo";
 import Skills from "./Skills/Skills";
 import Form from "./Form/Form";
+import {restoreState, saveState} from "../../localStorage";
 
 
 class MyPage extends React.Component {
@@ -24,11 +25,24 @@ class MyPage extends React.Component {
         friends: [],
     };
 
+    saveFriends = () => {
+        saveState("friends-state",this.state)
+    }
+
+    restoreFriends = () => {
+        let state =  restoreState("friends-state",this.state);
+        this.setState(state)
+    }
+
     addFriend = (newFriend) => {
         this.setState({
             friends: [...this.state.friends, {friend: newFriend}]
-        });
+        }, () => this.saveFriends());
     };
+
+    componentDidMount() {
+        this.restoreFriends()
+    }
 
 
     render = () => {
