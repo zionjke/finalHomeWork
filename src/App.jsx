@@ -5,7 +5,7 @@ import {HashRouter, Route} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import MyCounter from "./components/MyCounter/MyCounter";
 import MyTodo from "./components/MyTodo/MyTodo";
-import {Ellipsis} from "react-spinners-css";
+import {Ripple} from "react-spinners-css";
 
 
 class App extends React.Component {
@@ -25,7 +25,7 @@ class App extends React.Component {
     render = () => {
         return (
             <HashRouter>
-                { this.state.loading ? <Ellipsis/>
+                { this.state.loading ? <Ripple color="red"/>
                     : <div className="App">
                         <Navbar/>
                         <Route exact path="/monday" render={() => <MyPage/>}/>
