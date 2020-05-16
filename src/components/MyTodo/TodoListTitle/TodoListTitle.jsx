@@ -1,15 +1,12 @@
 import React from 'react';
+import styles from './TodoListTitle.module.css'
 
 class TodoListTitle extends React.Component {
 
-
-    onA
-
     render = () => {
 
-
         return (
-                <h3 className="todoList-header__title">
+                <h3 className={styles.todoTitle}>
                     {this.props.title}
                 </h3>
         );

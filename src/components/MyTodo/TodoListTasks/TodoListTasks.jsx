@@ -1,5 +1,6 @@
 import React from 'react';
-import TodoListTask from "./TodoListTask";
+import TodoListTask from "./Task/TodoListTask";
+import styles from './TodoListTasks.module.css'
 
 class TodoListTasks extends React.Component {
     render = () => {
@@ -12,7 +13,7 @@ class TodoListTasks extends React.Component {
                                                                   changePriority={this.props.changePriority}/>);
 
         return (
-            <div className="todoList-tasks">
+            <div className={styles.todoTasks}>
                 {taskEl}
             </div>
         );

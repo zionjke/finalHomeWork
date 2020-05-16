@@ -1,5 +1,5 @@
 import React from 'react';
-import './MyTodo.css';
+import styles from './AddNewItemForm.module.css'
 
 class AddNewItemForm extends React.Component {
 
@@ -39,22 +39,21 @@ class AddNewItemForm extends React.Component {
 
     render = () => {
 
-        let classForInput = this.state.error ? "error" : ""
+        let classForInput = this.state.error ? styles.error : styles.form_input
 
         return (
-            <div className="todoList-header">
-                <div className="todoList-newTaskForm">
+                <div className={styles.form}>
                     <input
                            className={classForInput}
                            onChange={this.onTitleChanged}
                            onKeyPress={this.onKeyPress}
                            value={this.state.title}
                            type="text"
-                           placeholder="New item name"
+                           placeholder={this.props.placeholder}
                     />
-                    <button onClick={this.onAddItemClick}>Add</button>
+                    <button className={styles.form_button} onClick={this.onAddItemClick}>{this.props.buttonName}</button>
                 </div>
-            </div>
+
         );
     }
 }

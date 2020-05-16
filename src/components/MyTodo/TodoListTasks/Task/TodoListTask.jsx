@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './TodoListTask.module.css'
 
 class TodoListTask extends React.Component {
     state = {
@@ -40,7 +41,7 @@ class TodoListTask extends React.Component {
         return (
                 <div className={classForTask}>
 
-                    <input
+                    <input className={style.checkbox}
                             type="checkbox"
                            checked={this.props.task.isDone}
                             onChange={this.onIsDoneChanged}
@@ -51,14 +52,14 @@ class TodoListTask extends React.Component {
                                  autoFocus={true}
                                  onBlur={this.deactivatedEditMode}
                                  onChange={this.onIsTitleChanged}/>
-                        : <span onClick={this.activatedEditMode}> {this.props.task.id}: {this.props.task.title} </span>
+                        : <span onClick={this.activatedEditMode}>  {this.props.task.title} </span>
                     }
 
                     {/*<span>*/}
                     {/*     {this.props.task.priority}*/}
                     {/*</span>*/}
 
-                    <select onChange={this.onIsPriorityChanged}>
+                    <select  onChange={this.onIsPriorityChanged}>
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
                         <option value="high">High</option>

@@ -1,0 +1,11 @@
+.myTodo {
+  display: flex;
+  flex-direction: row;
+}
+
+.addTodo_form {
+  width: 310px;
+  padding: 15px;
+  background-color: blanchedalmond;
+  margin: 100px auto;
+}

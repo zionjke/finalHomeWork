@@ -1,9 +1,9 @@
 import React from 'react';
 import './MyTodo.css';
-import AddNewItemForm from "./AddNewItemForm";
-import TodoListTasks from "./TodoListTasks";
+import AddNewItemForm from "./Form/AddNewItemForm";
+import TodoListTasks from "./TodoListTasks/TodoListTasks";
 import TodoListFooter from "./TodoListFooter";
-import TodoListTitle from "./TodoListTitle";
+import TodoListTitle from "./TodoListTitle/TodoListTitle";
 
 class TodoList extends React.Component {
 
@@ -94,6 +94,7 @@ class TodoList extends React.Component {
 
     deleteTask = (taskID) => {
         let newTasks = this.state.tasks.filter(t => t.id !== taskID);
+        this.newTaskId--;
         this.setState({
             tasks: newTasks
         }, () => {this.saveState()})
@@ -120,7 +121,9 @@ class TodoList extends React.Component {
         return (
             <div className="todoList">
                     <TodoListTitle title={this.props.title}/>
-                    <AddNewItemForm addItem={this.addTask} />
+                    <AddNewItemForm placeholder="New task name"
+                                    addItem={this.addTask}
+                    buttonName="Add task"/>
                     <TodoListTasks changeStatus={this.changeStatus}
                                    changeTitle={this.changeTitle}
                                    changePriority={this.changePriority}

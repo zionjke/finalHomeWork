@@ -1,7 +1,7 @@
 import React from 'react';
-import './MyTodo.css';
+import styles from './MyTodo.module.css';
 import TodoList from "./TodoList";
-import AddNewItemForm from "./AddNewItemForm";
+import AddNewItemForm from "./Form/AddNewItemForm";
 import {restoreState, saveState} from "../../localStorage";
 
 class MyTodo extends React.Component {
@@ -47,11 +47,14 @@ class MyTodo extends React.Component {
         const todolists = this.state.todolists.map(tl => <TodoList key={tl.id} id={tl.id} title={tl.title}/>)
 
         return (
+
             <div>
-                <div>
-                    <AddNewItemForm addItem={this.addTodoList}/>
+                <div className={styles.addTodo_form}>
+                    <AddNewItemForm placeholder="New TodoList name"
+                                    addItem={this.addTodoList}
+                                    buttonName="Add ToDo"/>
                 </div>
-                <div className="my-todo">
+                <div className={styles.myTodo}>
                     {todolists}
                 </div>
             </div>
