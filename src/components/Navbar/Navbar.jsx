@@ -1,31 +1,31 @@
 import React from 'react';
-import './Navbar.css'
 import {NavLink} from "react-router-dom";
+import styles from './Navbar.module.css'
 
 
 class Navbar extends React.Component {
 
     render = () => {
         return (
-            <nav className="nav">
-                <ul>
-                    <li>
-                        <NavLink  to="/monday">Monday</NavLink>
+            <nav className={styles.nav}>
+                <ul className={styles.nav_list}>
+                    <li className={styles.nav_list_item}>
+                        <NavLink  className={styles.nav_list_item_link}  to="/monday">Monday</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/tuesday">Tuesday</NavLink>
+                    <li className={styles.nav_list_item}>
+                        <NavLink className={styles.nav_list_item_link}  to="/tuesday">Tuesday</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/wednesday">Wednesday</NavLink>
+                    <li className={styles.nav_list_item}>
+                        <NavLink className={styles.nav_list_item_link} to="/wednesday">Wednesday</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/thursday">Thursday</NavLink>
+                    <li className={styles.nav_list_item}>
+                        <NavLink className={styles.nav_list_item_link} to="/thursday">Thursday</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/friday">Friday</NavLink>
+                    <li className={styles.nav_list_item}>
+                        <NavLink className={styles.nav_list_item_link} to="/friday">Friday</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/counter">Counter</NavLink>
+                    <li className={styles.nav_list_item}>
+                        <NavLink className={styles.nav_list_item_link} to="/counter">Counter</NavLink>
                     </li>
                 </ul>
             </nav>

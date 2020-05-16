@@ -1,23 +1,22 @@
-nav {
+.nav {
   background:#FFFFFF;
     height: 80px;
     width: 100%;
-    font-family: 'Caveat';
 }
 
 
-nav ul {
+.nav_list {
     float: right;
     margin-right: 20px;
 }
 
-nav ul li {
+.nav_list_item {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
 
-nav ul li a {
+.nav_list_item_link {
     color: black;
     font-size: 17px;
     text-transform: uppercase;
@@ -25,7 +24,8 @@ nav ul li a {
     border-radius: 3px;
 }
 
-a.active,a:hover {
+.nav_list_item_link.active,
+.nav_list_item_link:hover {
     background: #c06c84;
     transition: .5s;
     font-weight: bold;
