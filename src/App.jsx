@@ -11,22 +11,22 @@ import {Ripple} from "react-spinners-css";
 class App extends React.Component {
 
     state = {
-        loading: true
+        loading: false
     }
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                loading: false
-            })
-        }, 3000)
-    }
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({
+    //             loading: false
+    //         })
+    //     }, 3000)
+    // }
 
     render = () => {
         return (
             <HashRouter>
                 { this.state.loading ? <div className="loader">
-                    <Ripple color="red"/>
+                                            <Ripple color="red"/>
                                         </div>
                     : <div className="App">
                         <Navbar/>

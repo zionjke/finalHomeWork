@@ -3,78 +3,40 @@ import './MyCounter.css';
 import Counter from "./Counter";
 import Settings from "./Settings";
 import {restoreState, saveState} from "../../localStorage";
+import {connect} from "react-redux";
+import {incrementAC, maxValueAC, resetAC, setValueAC, startValueAC} from "../../redux/counterReducer";
 
 class MyCounter extends React.Component {
 
-    state = {
-        startValue: 0,
-        maxValue:5,
-        counter: 0,
-        setButtonDisabled: true,
-    };
 
-    saveCounter = () => {
-        saveState("counter-state",this.state)
-    }
-
-    restoreCounter = () => {
-        let state =  restoreState("counter-state",this.state)
-        this.setState(state)
-    }
 
     incrementHandler = () => {
-        this.setState({
-            counter: this.state.counter + 1
-        })
+        this.props.increment()
     };
 
     resetHandler = () => {
-        this.setState({
-            counter: this.state.startValue
-        })
+        this.props.reset()
     };
 
     changeMaxValue = (newMaxValue) => {
-        if( newMaxValue < 0 || newMaxValue <= this.state.startValue || this.state.startValue < 0 ) {
-            this.setState({
-                counter: "error",
-                maxValue: Number(newMaxValue),
-                setButtonDisabled: true,
-            },() => { this.saveCounter()})
-        } else {
-            this.setState({
-                counter: "press set",
-                maxValue: Number(newMaxValue),
-                setButtonDisabled: false,
-            },() => { this.saveCounter()})
-        }
+        this.props.maxValue(newMaxValue)
     };
 
     changeStartValue = (newStartValue) => {
-        if(newStartValue < 0 || newStartValue >= this.state.maxValue ) {
-            this.setState({
-                counter: "error",
-                startValue: Number(newStartValue),
-                setButtonDisabled: true,
-            },() => { this.saveCounter()})
-        } else {
-            this.setState({
-                counter: "press set",
-                startValue: Number(newStartValue),
-                setButtonDisabled: false,
-            },() => { this.saveCounter()})
-        }
+        this.props.startValue(newStartValue)
+
     };
 
     setNewValue = () => {
-        this.setState({
-            counter: this.state.startValue,
-            setButtonDisabled: true,
-        },() => { this.saveCounter()})
+        this.props.newValue()
+        // this.setState({
+        //     counter: this.state.startValue,
+        //     setButtonDisabled: true,
+        // })
     };
 
     componentDidMount() {
-        this.restoreCounter()
+
     }
 
     render = () => {
@@ -84,8 +46,8 @@ class MyCounter extends React.Component {
                 <Settings changeMaxValue={this.changeMaxValue}
                           changeStartValue={this.changeStartValue}
                           setNewValue={this.setNewValue}
-                          state={this.state}/>
-                <Counter state={this.state}
+                          state={this.props.state}/>
+                <Counter state={this.props.state}
                          incrementHandler={this.incrementHandler}
                          resetHandler={this.resetHandler}/>
             </div>
@@ -93,4 +55,35 @@ class MyCounter extends React.Component {
     }
 }
 
-export default MyCounter;
+const mapStateToProps = (state) => {
+    return {
+        state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        increment: () => {
+            const action = incrementAC();
+            dispatch(action)
+        },
+        reset: () => {
+            const action = resetAC()
+            dispatch(action)
+        },
+        maxValue: (newMaxValue) => {
+            const action = maxValueAC(newMaxValue);
+            dispatch(action)
+        },
+        startValue: (newStartValue) => {
+            const action = startValueAC(newStartValue);
+            dispatch(action)
+        },
+        newValue: () => {
+            const action = setValueAC();
+            dispatch(action)
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyCounter)
