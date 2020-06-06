@@ -29,10 +29,6 @@ class MyCounter extends React.Component {
 
     setNewValue = () => {
         this.props.newValue()
-        // this.setState({
-        //     counter: this.state.startValue,
-        //     setButtonDisabled: true,
-        // })
     };
 
     componentDidMount() {

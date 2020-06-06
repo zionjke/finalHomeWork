@@ -11,16 +11,16 @@ import {Ripple} from "react-spinners-css";
 class App extends React.Component {
 
     state = {
-        loading: false
+        loading: true
     }
 
-    // componentDidMount() {
-    //     setTimeout(() => {
-    //         this.setState({
-    //             loading: false
-    //         })
-    //     }, 3000)
-    // }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                loading: false
+            })
+        }, 3000)
+    }
 
     render = () => {
         return (
