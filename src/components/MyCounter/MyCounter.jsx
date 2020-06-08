@@ -2,7 +2,6 @@ import React from 'react';
 import './MyCounter.css';
 import Counter from "./Counter";
 import Settings from "./Settings";
-import {restoreState, saveState} from "../../localStorage";
 import {connect} from "react-redux";
 import {incrementAC, maxValueAC, resetAC, setValueAC, startValueAC} from "../../redux/counterReducer";
 
@@ -31,19 +30,16 @@ class MyCounter extends React.Component {
         this.props.newValue()
     };
 
-    componentDidMount() {
-
-    }
 
     render = () => {
 
         return (
-            <div className="mycounter">
+            <div className="my_counter">
                 <Settings changeMaxValue={this.changeMaxValue}
                           changeStartValue={this.changeStartValue}
                           setNewValue={this.setNewValue}
-                          state={this.props.state}/>
-                <Counter state={this.props.state}
+                          state={this.props.counterPage}/>
+                <Counter state={this.props.counterPage}
                          incrementHandler={this.incrementHandler}
                          resetHandler={this.resetHandler}/>
             </div>
@@ -53,7 +49,7 @@ class MyCounter extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        state
+        counterPage: state.counterPage
     }
 }
 

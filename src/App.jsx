@@ -6,26 +6,23 @@ import Navbar from "./components/Navbar/Navbar";
 import MyCounter from "./components/MyCounter/MyCounter";
 import MyTodo from "./components/MyTodo/MyTodo";
 import {Ripple} from "react-spinners-css";
+import {loadingAC} from "./redux/loadingReducer";
+import {connect} from "react-redux";
 
 
 class App extends React.Component {
 
-    state = {
-        loading: true
-    }
 
     componentDidMount() {
         setTimeout(() => {
-            this.setState({
-                loading: false
-            })
+            this.props.loading()
         }, 3000)
     }
 
     render = () => {
         return (
             <HashRouter>
-                { this.state.loading ? <div className="loader">
+                { this.props.loadingPage.loading ? <div className="loader">
                                             <Ripple color="red"/>
                                         </div>
                     : <div className="App">
@@ -40,4 +37,19 @@ class App extends React.Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        loadingPage: state.loadingPage
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loading: () => {
+            const action = loadingAC();
+            dispatch(action)
+        }
+    }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);
