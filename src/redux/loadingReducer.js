@@ -1,7 +1,7 @@
 export const SET_LOADING = 'SET_LOADING';
 
 const initialState = {
-    loading: true
+    loading: false
 }
 
 const  loadingReducer = (state = initialState,action) => {

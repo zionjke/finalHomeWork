@@ -8,6 +8,7 @@ import MyTodo from "./components/MyTodo/MyTodo";
 import {Ripple} from "react-spinners-css";
 import {loadingAC} from "./redux/loadingReducer";
 import {connect} from "react-redux";
+import TodoApp from "./components/TodoList/TodoApp";
 
 
 class App extends React.Component {
@@ -29,7 +30,7 @@ class App extends React.Component {
                         <Navbar/>
                         <Route exact path="/monday" render={() => <MyPage/>}/>
                         <Route exact path="/counter" render={() => <MyCounter/>}/>
-                        <Route exact path="/tuesday" render={() => <MyTodo/>}/>
+                        <Route exact path="/tuesday" render={() => <TodoApp/>}/>
                     </div>
                 }
             </HashRouter>
