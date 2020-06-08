@@ -4,7 +4,7 @@ import loadingReducer from "./loadingReducer";
 
 let reducers = combineReducers({
     loadingPage:loadingReducer,
-    counterPage:counterReducer
+    counterApp:counterReducer
 })
 
 const store = createStore(reducers);

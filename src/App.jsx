@@ -15,7 +15,7 @@ class App extends React.Component {
 
     componentDidMount() {
         setTimeout(() => {
-            this.props.loading()
+            this.props.loading(false)
         }, 3000)
     }
 
@@ -45,8 +45,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loading: () => {
-            const action = loadingAC();
+        loading: (loading) => {
+            const action = loadingAC(loading);
             dispatch(action)
         }
     }

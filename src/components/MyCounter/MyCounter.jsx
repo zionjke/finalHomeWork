@@ -38,8 +38,8 @@ class MyCounter extends React.Component {
                 <Settings changeMaxValue={this.changeMaxValue}
                           changeStartValue={this.changeStartValue}
                           setNewValue={this.setNewValue}
-                          state={this.props.counterPage}/>
-                <Counter state={this.props.counterPage}
+                          state={this.props.counterApp}/>
+                <Counter state={this.props.counterApp}
                          incrementHandler={this.incrementHandler}
                          resetHandler={this.resetHandler}/>
             </div>
@@ -49,7 +49,7 @@ class MyCounter extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        counterPage: state.counterPage
+        counterApp: state.counterApp
     }
 }
 

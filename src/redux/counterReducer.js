@@ -94,7 +94,8 @@ export const startValueAC = (newStartValue) => {
 
 export const setValueAC = () => {
     return {
-        type: SET_NEW_VALUE
+        type: SET_NEW_VALUE,
+
     }
 }
 

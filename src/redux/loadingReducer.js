@@ -9,15 +9,16 @@ const  loadingReducer = (state = initialState,action) => {
         case SET_LOADING:
             return {
                 ...state,
-                loading: false
+                loading: action.loading
             }
     }
     return state
 }
 
-export const loadingAC = () => {
+export const loadingAC = (loading) => {
     return {
-        type: SET_LOADING
+        type: SET_LOADING,
+        loading
     }
 }
 
