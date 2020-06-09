@@ -16,27 +16,5 @@
     border-right: 1px solid #f1f1f1;
     padding: 60px 20px;
   }
-  &__list {
-    li {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      padding: 10px 12px;
-      margin-bottom: 5px;
 
-      &.active {
-        background: #FFFFFF;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.03);
-        border-radius: 4px;
-      }
-
-      i {
-        margin-right: 10px;
-        display: inline-flex;
-        img {
-          opacity: 0.6;
-        }
-      }
-    }
-  }
 }
