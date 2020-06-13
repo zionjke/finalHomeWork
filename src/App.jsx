@@ -4,33 +4,33 @@ import MyPage from "./components/MyPage/MyPage";
 import {HashRouter, Route} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import MyCounter from "./components/MyCounter/MyCounter";
-import MyTodo from "./components/MyTodo/MyTodo";
 import {Ripple} from "react-spinners-css";
-import {loadingAC} from "./redux/loadingReducer";
 import {connect} from "react-redux";
-import TodoApp from "./components/TodoList/TodoApp";
+import Styles from "./components/Wednesday_Projects/Styles";
+import {setLoading} from "./redux/settingReducer";
+
 
 
 class App extends React.Component {
 
-
     componentDidMount() {
         setTimeout(() => {
-            this.props.loading(false)
-        }, 3000)
+            this.props.setLoading(false)
+        }, 1500)
     }
 
     render = () => {
         return (
             <HashRouter>
-                { this.props.loadingPage.loading ? <div className="loader">
+                { this.props.loading ? <div className="loader">
                                             <Ripple color="red"/>
                                         </div>
                     : <div className="App">
                         <Navbar/>
                         <Route exact path="/monday" render={() => <MyPage/>}/>
                         <Route exact path="/counter" render={() => <MyCounter/>}/>
-                        <Route exact path="/tuesday" render={() => <TodoApp/>}/>
+                        <Route exact path="/wednesday" render={() => <Styles/>}/>
+                        {/*<Route exact path="/tuesday" render={() => <TodoApp/>}/>*/}
                     </div>
                 }
             </HashRouter>
@@ -40,17 +40,10 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        loadingPage: state.loadingPage
+        loading: state.settings.loading
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loading: (loading) => {
-            const action = loadingAC(loading);
-            dispatch(action)
-        }
-    }
-};
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+
+export default connect(mapStateToProps,{setLoading})(App);

@@ -1,7 +1,19 @@
 .nav {
-  background:#FFFFFF;
+    background:#FFFFFF;
     height: 80px;
     width: 100%;
+}
+
+.cyan_theme {
+    background: cyan;
+}
+
+.orangered_theme {
+    background: orangered;
+}
+
+.blue_theme {
+    background: blue;
 }
 
 
