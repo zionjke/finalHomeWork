@@ -10,6 +10,8 @@ const initialState = {
     maxValue:5,
     counter: 0,
     setButtonDisabled: true,
+    errorCounterValue: 'error',
+    setCounterValue: 'press set'
 };
 
 const counterReducer = (state = initialState,action) => {
@@ -28,14 +30,14 @@ const counterReducer = (state = initialState,action) => {
             if(action.newMaxValue < 0 || action.newMaxValue <= state.startValue || state.startValue < 0) {
                 return {
                     ...state,
-                    counter: "error",
+                    counter: state.errorCounterValue,
                     maxValue: Number(action.newMaxValue),
                     setButtonDisabled: true,
                 }
             } else {
                 return {
                     ...state,
-                    counter: "press set",
+                    counter: state.setCounterValue,
                     maxValue: Number(action.newMaxValue),
                     setButtonDisabled: false,
                 }
@@ -44,14 +46,14 @@ const counterReducer = (state = initialState,action) => {
             if(action.newStartValue < 0 || action.newStartValue >= state.maxValue) {
                 return {
                     ...state,
-                    counter: "error",
+                    counter: state.errorCounterValue,
                     startValue: Number(action.newStartValue),
                     setButtonDisabled: true
                 }
             } else {
                 return {
                     ...state,
-                    counter: "press set",
+                    counter: state.setCounterValue,
                     startValue: Number(action.newStartValue),
                     setButtonDisabled: false
                 }

@@ -18,7 +18,7 @@ class Settings extends React.Component {
 
     render = () => {
 
-        let classForInput = this.props.state.counter === "error" ? styles.errorInput : styles.input
+        let classForInput = this.props.state.counter === this.props.state.errorCounterValue ? styles.errorInput : styles.input
 
         return (
             <div className={styles.settings}>
