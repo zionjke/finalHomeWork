@@ -34,7 +34,7 @@ const Styles = ({setStyle,style}) => {
 
     return (
         <div>
-            {isLoading && <Ripple/>}
+            {isLoading && <div className="loader"><Ripple/></div>}
             Cyan theme: <input onChange={onStyleChange} name="cyan_theme" type="radio" checked={style === "cyan_theme" } /> <br/>
             Orangered theme: <input onChange={onStyleChange} name="orangered_theme" type="radio" checked={style === "orangered_theme"}/> <br/>
             Blue theme: <input onChange={onStyleChange} name="blue_theme" type="radio" checked={style === "blue_theme" }/> <br/>
