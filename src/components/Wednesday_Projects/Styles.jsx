@@ -13,8 +13,8 @@ const Styles = ({setStyle,style}) => {
         setStyle(e.currentTarget.name)
     }
 
-    const onIsChecked = () => {
-        setIsChecked(!isChecked)
+    const onIsChecked = (e) => {
+        setIsChecked(e.currentTarget.checked)
     }
 
     const onClickResponse = () => {
