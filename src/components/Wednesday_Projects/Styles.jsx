@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import {connect} from "react-redux";
 import {setStyle} from "../../redux/settingReducer";
-import {api, tryCatch} from "../../dal/api";
+import {api} from "../../dal/api";
 import {Ripple} from "react-spinners-css";
-
 
 
 const Styles = ({setStyle,style}) => {
@@ -23,7 +22,7 @@ const Styles = ({setStyle,style}) => {
         api.responce(isChecked)
             .then(responce => console.log(responce))
             .catch(e => {
-                alert('Ошибка при отправке запроса!')
+                alert(`Ошибка при отправке запроса: ${e}`)
             })
             .finally(() => {
                 setIsLoading(false)
