@@ -6,7 +6,7 @@ import {Ripple} from "react-spinners-css";
 
 
 const Styles = ({setStyle,style}) => {
-    const [isChecked,setIsChecked] = useState(false);
+    const [isChecked,setIsChecked] = useState('');
     const [isLoading, setIsLoading] = useState('');
 
     const onStyleChange = (e) => {
@@ -16,6 +16,7 @@ const Styles = ({setStyle,style}) => {
     const onIsChecked = (e) => {
         setIsChecked(e.currentTarget.checked)
     }
+
 
     const onClickResponse = () => {
         setIsLoading(true)
