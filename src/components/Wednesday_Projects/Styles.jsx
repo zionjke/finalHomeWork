@@ -8,26 +8,16 @@ const Styles = ({setStyle,style,sendRequest,inProgress,setAccess,success}) => {
 
     const onStyleChange = (e) => {
         setStyle(e.currentTarget.name)
-    }
+    };
 
     const onIsChecked = (e) => {
         setAccess(e.currentTarget.checked)
-    }
+    };
 
 
     const onClickResponse = () => {
         sendRequest(success)
-        // setIsLoading(true)
-        // api.responce(isChecked)
-        //     .then( () => alert(`Запрос отправлен`))
-        //     .catch(e => {
-        //         alert(`Ошибка при отправке запроса: ${e}`)
-        //     })
-        //     .finally(() => {
-        //         setIsLoading(false)
-        //     })
-
-    }
+    };
 
 
     return (
@@ -52,6 +42,6 @@ const mapStateToProps = (state) => {
         inProgress: state.settings.inProgress,
         success: state.settings.success
     }
-}
+};
 
 export default connect(mapStateToProps, {setStyle,setAccess,sendRequest})(Styles)

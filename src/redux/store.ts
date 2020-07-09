@@ -3,11 +3,13 @@ import counterReducer from "./counterReducer";
 import settingReducer from "./settingReducer";
 import thunk from "redux-thunk";
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     counterApp:counterReducer,
     settings: settingReducer
-})
+});
 
-const store = createStore(reducers,applyMiddleware(thunk));
+export type AppStateType = ReturnType<typeof rootReducer>
+
+const store = createStore(rootReducer,applyMiddleware(thunk));
 
 export default store

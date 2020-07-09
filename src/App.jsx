@@ -30,7 +30,6 @@ class App extends React.Component {
                         <Route exact path="/monday" render={() => <MyPage/>}/>
                         <Route exact path="/counter" render={() => <MyCounter/>}/>
                         <Route exact path="/wednesday" render={() => <Styles/>}/>
-                        {/*<Route exact path="/tuesday" render={() => <TodoApp/>}/>*/}
                     </div>
                 }
             </HashRouter>
