@@ -4,14 +4,23 @@ import MyPage from "./components/MyPage/MyPage";
 import {HashRouter, Route} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import MyCounter from "./components/MyCounter/MyCounter";
-import {Ripple} from "react-spinners-css";
 import {connect} from "react-redux";
 import Styles from "./components/Wednesday_Projects/Styles";
 import {setLoading} from "./redux/settingReducer";
+import {AppStateType} from "./redux/store";
+import loader from './assets/img/giphy.gif'
 
 
 
-class App extends React.Component {
+type MapStatePropsType = {
+    loading:boolean
+}
+
+type MapDispatchPropsType = {
+    setLoading:(loading:boolean)=>void
+}
+
+class App extends React.Component<MapStatePropsType & MapDispatchPropsType> {
 
     componentDidMount() {
         setTimeout(() => {
@@ -23,7 +32,7 @@ class App extends React.Component {
         return (
             <HashRouter>
                 { this.props.loading ? <div className="loader">
-                                            <Ripple color="red"/>
+                                            <img src={loader} alt="Loader Gif"/>
                                         </div>
                     : <div className="App">
                         <Navbar/>
@@ -37,7 +46,7 @@ class App extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state:AppStateType):MapStatePropsType => {
     return {
         loading: state.settings.loading
     }
@@ -45,4 +54,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps,{setLoading})(App);
+export default connect<MapStatePropsType,MapDispatchPropsType,{},AppStateType>(mapStateToProps,{setLoading})(App);
